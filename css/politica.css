@@ -1,0 +1,153 @@
+/* ===============================
+   VARIÁVEIS GLOBAIS
+================================ */
+:root {
+  --primary: #4CAF50;
+  --text: #212121;
+  --muted: #666;
+  --bg: #F5F5F5;
+  --white: #ffffff;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   RESET BÁSICO
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ===============================
+   CONTAINER PADRÃO
+================================ */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ===============================
+   HEADER DA PÁGINA
+================================ */
+.page-header {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  color: #fff;
+  padding: 4rem 0 3rem;
+  margin-bottom: 3rem;
+  
+}
+
+.page-header h1 {
+  font-size: 2.2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: .5rem;
+}
+
+.page-header p {
+  opacity: .9;
+  font-size: .95rem;
+}
+
+
+
+/* ===============================
+   CONTEÚDO PRINCIPAL
+================================ */
+main article {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ===============================
+   SEÇÕES
+================================ */
+article section {
+  margin-bottom: 2.5rem;
+}
+
+article h2 {
+  font-size: 1.4rem;
+  margin-bottom: .8rem;
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+article p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* ===============================
+   LISTAS
+================================ */
+article ul {
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+article ul li {
+  margin-bottom: .5rem;
+  color: var(--muted);
+}
+
+/* ===============================
+   LINK E CONTATO
+================================ */
+article a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+article a:hover {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.page-footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* ===============================
+   RESPONSIVO
+================================ */
+@media (max-width: 768px) {
+
+  .page-header {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  main article {
+    padding: 2rem;
+  }
+
+  article h2 {
+    font-size: 1.25rem;
+  }
+}

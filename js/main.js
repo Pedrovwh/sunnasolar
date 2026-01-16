@@ -13,16 +13,26 @@ if (abrirContato && modalContato) {
   });
 }
 if (fecharContato && modalContato) {
+  // usar função centralizada para fechar e (quando aplicável) limpar o formulário
   fecharContato.addEventListener('click', () => {
-    modalContato.classList.remove('active');
-  });
-  // Fechar ao clicar fora do conteúdo
-  modalContato.addEventListener('click', (e) => {
-    if (e.target === modalContato) {
+    if (typeof fecharModalContato === 'function') {
+      fecharModalContato();
+    } else {
       modalContato.classList.remove('active');
     }
   });
+  // Fechar ao clicar fora do conteúdo usando mesma função
+  modalContato.addEventListener('click', (e) => {
+    if (e.target === modalContato) {
+      if (typeof fecharModalContato === 'function') {
+        fecharModalContato();
+      } else {
+        modalContato.classList.remove('active');
+      }
+    }
+  });
 }
+
 const modal = document.getElementById("modalServicos");
 const modalTitulo = document.getElementById("modal-titulo");
 const modalImagem = document.getElementById("modal-imagem");
@@ -35,23 +45,30 @@ const fechaModal = document.querySelector("#modalServicos .modal-close");
 const servicesData = {
   ongrid: {
     titulo: "Sistemas On-Grid",
-    imagem: "imagens/Sunna Solar - logo.png",
+    imagem: "assets/diagrama-on-grid-150.png",
     descricao: "Sistemas fotovoltaicos conectados à rede elétrica pública, permitindo a troca de energia com a concessionária.",
     uso: "Uso comum: Residências, comércios e indústrias conectados à rede elétrica.",
     indicado: "Indicado para: Residencial, Comercial e Empresarial."
   },
   offgrid: {
     titulo: "Sistemas Off-Grid",
-    imagem: "imagens/Sunna Solar - logo.png",
+    imagem: "assets/diagrama-off-grid-150.png",
     descricao: "Sistemas fotovoltaicos independentes da rede elétrica, ideais para locais remotos ou sem acesso à rede.",
     uso: "Uso comum: Sítios, fazendas, áreas rurais e locais isolados.",
     indicado: "Indicado para: Rural e locais sem acesso à rede pública."
   },
   zerogrid: {
     titulo: "Sistemas Zero-Grid",
-    imagem: "imagens/Sunna Solar - logo.png",
+    imagem: "assets/diagrama-zero-grid-150.png",
     descricao: "Sistemas fotovoltaicos que combinam a eficiência da energia solar com a autonomia total do sistema.",
     uso: "Uso comum: Projetos que exigem independência total da rede, com backup e controle inteligente.",
+    indicado: "Indicado para: Residencial, Empresarial e Rural que buscam autonomia máxima."
+  },
+  hybrid: {
+    titulo: "Sistemas Híbridos",
+    imagem: "assets/diagrama-hibrido-150.png",
+    descricao: "O sistema de geração de energia solar híbrido combina as principais vantagens dos sistemas On-Grid e Off-Grid, permitindo a conexão com a rede elétrica e, ao mesmo tempo, o uso de baterias para armazenamento de energia.",
+    uso: "Uso comum: Residências que sofrem com quedas frequentes de energia, Comércios que não podem interromper suas atividades, Empresas que precisam proteger equipamentos sensíveis .",
     indicado: "Indicado para: Residencial, Empresarial e Rural que buscam autonomia máxima."
   }
 };
@@ -129,6 +146,27 @@ faqs.forEach(f => f.addEventListener('click', () => {
   ans.style.display = open ? 'none' : 'block';
   f.querySelector('span').textContent = open ? '+' : '-';
 }));
+
+// FAQ Toggle - Smooth Animation
+const faqItems = document.querySelectorAll('.faq-item');
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+  question.addEventListener('click', function() {
+    const faqItem = this.parentElement;
+    const isActive = faqItem.classList.contains('active');
+    
+    // Fecha todos os outros itens
+    faqItems.forEach(item => {
+      item.classList.remove('active');
+    });
+    
+    // Abre o item clicado se não estava aberto
+    if (!isActive) {
+      faqItem.classList.add('active');
+    }
+  });
+});
 
 // Destacar link do menu conforme a seção visível
 const sections = document.querySelectorAll('section');
@@ -212,3 +250,78 @@ navMenu.querySelectorAll('a').forEach(link => {
     menuToggle.classList.remove('active');
   });
 });
+
+// Validação e envio do formulário de contato
+const form = document.getElementById('formContato');
+
+function fecharModalContato() {
+  if (modalContato) modalContato.classList.remove('active');
+  // limpar o formulário sempre que o modal for fechado
+  limparFormulario();
+}
+
+// fechar pelo X do modal de contato
+if (fecharContato) fecharContato.addEventListener('click', fecharModalContato);
+
+// Fechar clicando fora do modal de contato
+if (modalContato) {
+  modalContato.addEventListener('click', (e) => {
+    if (e.target === modalContato) {
+      fecharModalContato();
+    }
+  });
+}
+
+function limparFormulario() {
+  if (form) form.reset();
+}
+
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // coletar e sanitizar valores
+    const nome = (form.querySelector('[name="nome"]')?.value || '').trim();
+    const telefone = (form.querySelector('[name="telefone"]')?.value || '').trim();
+    const email = (form.querySelector('[name="email"]')?.value || '').trim();
+    const sistema = (form.querySelector('[name="sistema"]')?.value || '').trim();
+    const politicaChecked = !!form.querySelector('[name="politica"]')?.checked;
+
+    if (!politicaChecked) {
+      alert('Por favor, aceite a Política de Privacidade.');
+      return;
+    }
+
+    const fd = new FormData();
+    fd.append('nome', nome);
+    fd.append('telefone', telefone);
+    fd.append('email', email);
+    fd.append('sistema', sistema);
+    fd.append('politica', politicaChecked ? '1' : '0');
+
+    try {
+      const res = await fetch('contato.php', {
+        method: 'POST',
+        body: fd
+      });
+
+      const json = await res.json().catch(() => ({ success: res.ok }));
+
+      if (res.ok && json.success) {
+        // abrir WhatsApp em nova aba com mensagem padrão
+        const mensagem = `Olá! Meu nome é ${nome}. Gostaria de solicitar um orçamento para sistema ${sistema}. Telefone: ${telefone}.`;
+        window.open(`https://wa.me/5599999999999?text=${encodeURIComponent(mensagem)}`, '_blank');
+
+        // fechar (a limpeza será executada na função de fechar)
+        fecharModalContato();
+      } else {
+        alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar o formulário:', error);
+      alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
+    }
+  });
+}
+
+

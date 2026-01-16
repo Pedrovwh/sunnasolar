@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="./assets/Sunna Solar - logo.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+
 
 </head>
 <body>
@@ -20,12 +22,12 @@
     <div class="header-inner">
       <div class="logo">
         <a href="#hero"> 
-          <img src="./assets/Sunna Solar - logo.png" alt="Sunna Solar Logo" />
+          <img src="./assets/Sunna Solar - logo-450.png" alt="Sunna Solar Logo" />
         </a>
       </div>
       <nav class="nav">
         <a href="#hero">Home</a>
-        <a href="#beneficios">Benefícios</a>
+        <a href="#beneficios">Vantagens</a>
         <a href="#servicos">Serviços</a>
         <a href="#faq">FAQ</a>
         <a href="#" class="cta-btn">Contato</a>
@@ -49,13 +51,14 @@
   <section class="quem-somos" id="quem-somos">
     <div class="quem-somos-container">
       <div class="quem-somos-texto">
-        <h2>Quem Somos</h2>
-        <p>A Sunna Solar é uma empresa comprometida com a sustentabilidade e inovação. Nossa missão é levar energia limpa e acessível para todos, promovendo economia e contribuindo para um futuro mais verde.</p>
-        <p>Com anos de experiência no mercado, oferecemos soluções personalizadas para atender às necessidades de cada cliente, garantindo qualidade e eficiência em todos os projetos.</p>
+        <h2>Quem Somos?</h2>
+        <p>A <strong>Sunna Solar</strong> atua no mercado de energia solar, ajudando clientes e parceiros a se tornarem <strong>produtores da própria energia elétrica</strong>. Nossas soluções permitem reduzir custos, eliminar taxas abusivas, evitar surpresas com bandeiras tarifárias e se proteger da inflação energética, que historicamente cresce acima da inflação econômica.</p>
+        <p>Com tecnologia de ponta, projetos personalizados e foco em eficiência, oferecemos mais <strong>economia, previsibilidade e sustentabilidade</strong> para residências, comércios e empresas.</p>
+        <p>Será um prazer ter você no nosso time e fazer parte da sua transição para a energia solar.</p>
       </div>
       <div class="quem-somos-video">
-        <video controls controlslist="nodownload" disablepictureinpicture>
-          <source src="./assets/quem-somos-video.mp4" type="video/mp4">
+        <video poster="assets/Sunna Solar - thumb.PNG" controls controlslist="nodownload" disablepictureinpicture>
+          <source src="assets/serviço-video.mp4" type="video/mp4">
           Seu navegador não suporta a reprodução de vídeos.
         </video>
       </div>
@@ -67,22 +70,23 @@
     <div class="modal-content modal-form">
       <span class="modal-close" id="modal-close-contato">&times;</span>
       <h2>Solicite um Orçamento</h2>
-      <form id="formContato">
-        <input type="text" placeholder="Nome" required />
-        <input type="tel" placeholder="Telefone" required />
-        <input type="email" placeholder="E-mail" required />
-        <select required>
+      <img src="assets/Sunna Solar - logo.png" alt="Logo Sunna Solar">
+      <form class="form-contato" id="formContato">
+        <input type="text" name="nome" id="nome" placeholder="Nome" required />
+        <input type="tel" name="telefone" id="telefone" placeholder="Telefone" required />
+        <input type="email" name="email" id="email" placeholder="E-mail" required />
+        <select name="sistema" id="sistema" required>
           <option value="">Tipo de Instalação</option>
           <option>Residencial</option>
           <option>Rural</option>
           <option>Empresarial</option>
         </select>
-        <input type="checkbox" id="politica" required/> 
+        <input type="checkbox" id="politica" name="politica" required/> 
         <label for="politica">Li e aceito a Política de Privacidade</label>
         <div class="form-buttons form-buttons-center">
-          <button type="button" class="btn-whats">WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
+          <button type="submit" class="btn-whats">WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
         </div>
-        <p class="politica-msg">Ao enviar, você concorda com nossa <a href="#" target="_blank">Política de Privacidade</a>.</p>
+        <p class="politica-msg">Ao enviar, você concorda com nossa <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</p>
       </form>
     </div>
   </div>
@@ -90,11 +94,30 @@
   <!-- ===== BENEFÍCIOS ===== -->
   <section class="beneficios" id="beneficios">
     <h2>Por que escolher energia solar?</h2>
+
+    <div class="beneficios-intro">
+      <figure class="beneficios-figure">
+        <img class="beneficios-image" src="./assets/diagrama-geracao-energia-450.png" alt="Diagrama de geração de energia solar em residência" />
+        <figcaption>Visão geral: Geração de energia solar em residências</figcaption>
+      </figure>
+
+      <div class="beneficios-texto">
+        <h3>Como funciona a geração de energia solar em sua casa</h3>
+        <p>Os painéis instalados no telhado captam a luz do sol e convertem em eletricidade. Um inversor transforma essa energia em corrente alternada utilizável em sua residência. O excedente pode ser injetado na rede ou armazenado em baterias para uso posterior.</p>
+        <p class="vantagens">Vantagens de adquirir uma usina solar: redução significativa na conta de energia, independência energética, menor impacto ambiental, aumento do valor do imóvel e rápido retorno do investimento.</p>
+        <a href="#" class="btn cta-btn" id="abrirContatoBeneficios" aria-label="Solicitar orçamento de energia solar">Solicitar orçamento</a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Vantagens da Energia Solar</h3>
+    </div>
+
     <div class="beneficios-grid">
-      <div class="card"><h3>💰 Economia</h3><p>Reduza drasticamente seus custos de energia.</p></div>
-      <div class="card"><h3>🌎 Sustentabilidade</h3><p>Contribua para um planeta mais limpo e renovável.</p></div>
-      <div class="card"><h3>🏠 Valorização</h3><p>Imóveis com energia solar são mais valorizados.</p></div>
-      <div class="card"><h3>⚡ Retorno Rápido</h3><p>Recupere seu investimento em poucos anos.</p></div>
+      <div class="card"><img src="assets/baixa-manutencao-200.png" alt="baixa-manutencao-200"><h3>Manutenção Simples e Econômica</h3><p>Os sistemas fotovoltaicos exigem mínima manutenção, garantindo operação eficiente e economia contínua ao longo dos anos.</p></div>
+      <div class="card"><img src="assets/economia-na-conta-de-energia-200.png" alt="economia-na-conta-de-energia-200"><h3>Redução Imediata na Conta de Luz</h3><p>Diminua drasticamente seus gastos com energia elétrica e proteja-se contra reajustes e aumentos nas tarifas.</p></div>
+      <div class="card"><img src="assets/energia-renovavel-e-sustentavel-200.png" alt="energia-renovavel-e-sustentavel-200"><h3>Energia Limpa e Sustentável</h3><p class="paragrafo"><br>Produza sua própria energia com uma fonte renovável, reduza impactos ambientais e contribua para um futuro mais sustentável.</p></div>
+      <div class="card"><img src="assets/equipamento-com-longa-vida-util-200.png" alt="equipamento-com-longa-vida-util-200"><h3>Alta Durabilidade e Confiabilidade</h3><p>Equipamentos projetados para durar décadas, oferecendo segurança, desempenho constante e excelente retorno sobre o investimento.</p></div>
     </div>
   </section>
 
@@ -117,22 +140,133 @@
         <p>Combina o melhor dos dois mundos com independência total.</p>
         <button class="btn service-btn" data-service="zerogrid">Saiba mais</button>
       </div>
-    </div>
-    <div class="card-servicos">
-      <h3>Um Pouco do Nosso Serviço Pronto!</h3>
-      <video controls controlslist="nodownload" disablepictureinpicture>
-          <source src="./assets/serviço-video.mp4" type="video/mp4">
-      </video>
+      <div class="card-servicos">
+        <h3>Hibrido</h3>
+        <p>Combina o melhor dos dois mundos com independência total.</p>
+        <button class="btn service-btn" data-service="hybrid">Saiba mais</button>
+      </div>
     </div>
   </section>
 
+  <!--  ======= Projetos ======= -->
+<section class="projetos" id="projetos">
+  <div class="container">
+    <h2>Projetos Realizados</h2>
+    <p>Confira alguns sistemas de energia solar instalados pela Sunna Solar.</p>
+
+    <div class="projetos-grid">
+     
+      <div class="card-projeto">
+        <a href="assets/projetos/projeto-a/a1.jpg"
+          class="glightbox "
+          data-gallery="projetos-a"
+          data-title="Sistema Residencial On-Grid"
+          data-description="Instalação residencial com sistema fotovoltaico On-Grid.">
+          <img src="assets/projetos/projeto-a/thumb.jpg" alt="Projeto residencial energia solar">
+        </a>
+        <div class="projeto-info">
+          <h3>Titulo</h3>
+          <p>Tipo de Projeto</p>
+        </div>
+          
+
+        <!-- Incluir imagens para galeria de cada projeto -->
+         <a href="assets/projetos/projeto-a/a2.jpg"
+          class="glightbox glightbox-hidden"
+          data-gallery="projetos-a"
+          data-title="a2">
+        </a>
+
+         <a href="assets/projetos/projeto-a/a3.jpg"
+          class="glightbox glightbox-hidden"
+          data-gallery="projetos-a"
+          data-title="a3">
+        </a>
+
+        <a href="assets/projetos/projeto-a/a4.jpg"
+          class="glightbox glightbox-hidden"
+          data-gallery="projetos-a"
+          data-title="a4">
+        </a>
+      </div>
+
+      <div class="card-projeto">
+        <a href="assets/projetos/projeto-b/b1.jpg"
+          class="glightbox"
+          data-gallery="projetos-b"
+          data-title="Sistema Comercial"
+          data-description="Sistema solar instalado em estabelecimento comercial.">
+          <img src="assets/projetos/projeto-b/thumb.jpg" alt="Projeto comercial energia solar">
+        </a>
+        <div class="projeto-info">
+          <h3>Titulo</h3>
+          <p>Tipo de Projeto</p>
+        </div>
+
+                <!-- Incluir imagens para galeria de cada projeto -->
+         <a href="assets/projetos/projeto-b/b2.jpg"
+            class="glightbox glightbox-hidden"
+            data-gallery="projetos-b"
+            data-title="b2">
+          </a>
+
+         <a href="assets/projetos/projeto-b/b3.jpg"
+            class="glightbox glightbox-hidden"
+            data-gallery="projetos-b"
+            data-title="b3">
+          </a>
+
+          <a href="assets/projetos/projeto-b/b4.jpg"
+            class="glightbox glightbox-hidden"
+            data-gallery="projetos-b"
+            data-title="b4">
+          </a>
+      </div>
+
+      <div class="card-projeto">
+        <a href="assets/projetos/projeto-c/c1.jpg"
+          class="glightbox"
+          data-gallery="projetos-c"
+          data-title="Sistema Rural Off-Grid"
+          data-description="Instalação de sistema fotovoltaico Off-Grid em área rural.">
+          <img src="assets/projetos/projeto-c/thumb.jpg" alt="Projeto rural energia solar">
+        </a>
+        <div class="projeto-info">
+          <h3>Titulo</h3>
+          <p>Tipo de Projeto</p>
+        </div>
+
+                <!-- Incluir imagens para galeria de cada projeto -->
+          <a href="assets/projetos/projeto-c/c2.jpg"
+            class="glightbox glightbox-hidden"
+            data-gallery="projetos-c"
+            data-title="c2">
+          </a>
+
+          <a href="assets/projetos/projeto-c/c3.jpg"
+            class="glightbox glightbox-hidden"
+            data-gallery="projetos-c"
+            data-title="c3">
+          </a>
+
+          <a href="assets/projetos/projeto-c/c4.jpg"
+            class="glightbox glightbox-hidden"
+            data-gallery="projetos-c"
+            data-title="c4">
+          </a>
+    </div>
+  </div>
+</section>
+  <!-- ===== FIM Projetos ===== -->
 
   <!-- ===== FAQ ===== -->
   <section class="faq" id="faq">
     <h2>Perguntas Frequentes</h2>
     <div class="faq-item">
       <div class="faq-question">Como funciona o sistema solar? <span>+</span></div>
-      <div class="faq-answer">Os painéis captam energia solar e convertem em eletricidade para uso em sua residência.</div>
+      <div class="faq-answer">
+        <div>Os painéis captam energia solar e convertem em eletricidade para uso em sua residência.</div>
+      </div>
     </div>
     <div class="faq-item">
       <div class="faq-question">E se faltar sol? <span>+</span></div>
@@ -147,24 +281,71 @@
   <!-- ===== CONTATO ===== -->
   <!-- CONTATO REMOVIDO: agora é modal -->
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>© 2025 Sunna Solar. Todos os direitos reservados.</p>
-    <p><a href="mailto:contato@sunnasolar.com.br">contato@sunnasolar.com.br</a> | ☎ (99) 99999-9999</p>
-    <p class="rede-social"><a href="https://www.instagram.com/sunna.solar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"> <img src="./assets/instagram-light.svg" width="20px" height="20px" alt="Logo Instagram"> Instagram</a> | <a href="https://www.facebook.com/profile.php?id=61583740389486" target="_blank"> <img src="./assets/facebook-light.svg" alt="Logo facebook" width="20px" height="20px"> Facebook</a>| <a href="#" target="_blank"><img src="./assets/linkedin-light.svg" alt="Logo Linkedin" width="20px" height="20px"> Linkedin</p>
-    <p><a href="#">Política de Privacidade</a></p>
-  </footer>
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO -->
+    <div class="footer-brand">
+      <img src="assets/Sunna Solar - logo.png" alt="Sunna Solar" class="footer-logo">
+    </div>
+
+    <!-- MENUS CENTRALIZADOS -->
+    <div class="footer-nav">
+      <div class="footer-col">
+        <h4>Início</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#beneficios">Vantagens</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Sobre-nós</h4>
+        <ul>
+          <li><a href="#">Informações da Empresa</a></li>
+          <li><a href="mailto:contato@sunnasolar.com.br">Contato</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://wa.me/5599999999999">Telefones</a></li>
+          <li><a href="#">Chat</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- AÇÕES À DIREITA -->
+    <div class="footer-actions">
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <a href="#" class="footer-btn cta cta-btn" id="abrirContato">Contato</a>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Sunna Solar. Todos os direitos reservados.</p>
+</footer>
 
 
   <!-- ===== MODAL SERVIÇOS ===== -->
   <div class="modal" id="modalServicos">
     <div class="modal-content" id="modal-content">
       <span class="modal-close" id="modal-close">&times;</span>
-      <img id="modal-imagem" src="" alt="" />
-      <h3 id="modal-titulo"></h3>
-      <p id="modal-texto"></p>
-      <p id="modal-uso" style="margin-top:1rem;"></p>
-      <p id="modal-indicado" style="font-weight:600;color:#4CAF50;"></p>
+      <img class="modal-imagem" id="modal-imagem" src="" alt="" />
+      <h3 class="modal-titulo" id="modal-titulo"></h3>
+      <p class="modal-texto" id="modal-texto"></p>
+      <p class="modal-uso" id="modal-uso" style="margin-top:1rem;"></p>
+      <p class="modal-indicado" id="modal-indicado" style="font-weight:600;color:#4CAF50;"></p>
     </div>
   </div>
 
@@ -176,5 +357,15 @@
 
 
   <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 </body>
 </html>
+
+<script>
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true
+  });
+</script>
